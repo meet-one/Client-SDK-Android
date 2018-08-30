@@ -53,7 +53,7 @@ compile(name: 'meetlib', ext: 'aar')
 ```
   
         
-**Notice: you need modify "Custom Scheme" to Your DApp's scheme.
+**Notice: you need modify "Custom Scheme" to Your DApp's scheme.**
  
 # Usage
 

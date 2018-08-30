@@ -10,7 +10,7 @@ Android  client SDK for DApps.Will release in MEET.ONE 2.0
 Installation
 ==============
 
-**1. Copy ==meetlib.aar== to your app lib**  
+**1. Copy 'meetlib.aar' to your app lib**  
 
 **2. Reference meetlib library to your app**
 
@@ -53,7 +53,7 @@ compile(name: 'meetlib', ext: 'aar')
 ```
   
         
-==Notice: you need modify "Custom Scheme" to Your DApp's scheme.==
+**Notice: you need modify "Custom Scheme" to Your DApp's scheme.
  
 # Usage
 

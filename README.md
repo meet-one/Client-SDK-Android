@@ -1,6 +1,6 @@
 Client-SDK-Android    
 ==============
-Android  client SDK for DApps.Will release in MEET.ONE 2.0
+Android  client SDK for DApps.Will release in MEET.ONE 1.2.0
 
 # Features
 - **Get EOS Account**: DApp can request EOS Authorization for an EOS Account.

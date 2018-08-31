@@ -54,6 +54,11 @@ compile(name: 'meetlib', ext: 'aar')
   
         
 ==Notice: you need modify "Custom Scheme" to Your DApp's scheme.==
+
+**4. Add Dependency**
+
+[fastjson](https://github.com/alibaba/fastjson) `com.alibaba:fastjson:1.1.70.android`
+
  
 # Usage
 

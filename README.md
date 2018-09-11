@@ -160,7 +160,7 @@ MeetOneManager.getInstance().requestTransaction(this, transaction, appInfo, new 
 });
 ```
 
-### 3.Request EOS Custom Signature
+### 4.Request EOS Custom Signature
 
 **Code Samples**
 

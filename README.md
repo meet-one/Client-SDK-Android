@@ -160,7 +160,7 @@ MeetOneManager.getInstance().requestTransaction(this, transaction, appInfo, new 
 });
 ```
 
-### 3.Push EOS Transactions
+### 3.Request EOS Custom Signature
 
 **Code Samples**
 
@@ -178,7 +178,7 @@ Signature signature = new Signature();
 signature.setAccountName("aaaaa");//提供签名的EOS 账号
 signature.setData("moreone");//自定义签名字符串
 signature.setDescription("this is a demo");//DAPP发起签名操作原因
-MeetOneManager.getInstance().requeatSignature(this, signature, appInfo, new MeetOneCallBack() {
+MeetOneManager.getInstance().requestSignature(this, signature, appInfo, new MeetOneCallBack() {
     @Override
     public void callBack(Map<String, String> paramMap, CallBack callBack) {
         Log.d("MeetOneManager", paramMap.toString());

@@ -175,9 +175,9 @@ appInfo.setDescription("this is a demo");
 appInfo.setVersion("2.4.0");
 
 Signature signature = new Signature();
-signature.setAccountName("aaaaa");//提供签名的EOS 账号
-signature.setData("moreone");//自定义签名字符串
-signature.setDescription("this is a demo");//DAPP发起签名操作原因
+signature.setAccountName("aaaaa");//provider account name
+signature.setData("moreone");//custom signature string
+signature.setDescription("this is a demo");//request reason
 MeetOneManager.getInstance().requestSignature(this, signature, appInfo, new MeetOneCallBack() {
     @Override
     public void callBack(Map<String, String> paramMap, CallBack callBack) {

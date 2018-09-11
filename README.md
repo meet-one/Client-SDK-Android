@@ -1,14 +1,22 @@
 Client-SDK-Android    
 ==============
-Android  client SDK for DApps.Will release in MEET.ONE 1.2.0
+Android client SDK for DApps.Support MEET.ONE SDK & SimpleWallet SDK.  
 
-# Features
+## MEET.ONE SDK
+
+### Features
 - **Get EOS Account**: DApp can request EOS Authorization for an EOS Account.
 - **EOS Transfer**: DApp can send EOS Transferation.
 - **Push EOS Transactions**: DApp can push EOS Transactions.
+- **Request EOS Custom Signature**: DApp can request EOS Custom Signature.
 
-Installation
-==============
+## SimpleWallet SDK
+
+### Features
+- **Get EOS Account**: DApp can request EOS Authorization for an EOS Account.
+- **EOS Transfer**: DApp can send EOS Transferation.
+
+## Installation
 
 **1. Copy 'meetlib.aar' to your app lib**  
 
@@ -60,7 +68,7 @@ compile(name: 'meetlib', ext: 'aar')
 [fastjson](https://github.com/alibaba/fastjson) `com.alibaba:fastjson:1.1.70.android`
 
  
-# Usage
+## MEET.ONE SDK Usage
 
 ### 1.Request EOS Authorization
 
@@ -75,7 +83,7 @@ AppInfo appInfo = new AppInfo();
 appInfo.setName("app name");
 appInfo.setIcon("app icon");
 appInfo.setDappCallbackScheme("http");
-appInfo.setDappRedirectURL("http://www.baidu.com");
+appInfo.setDappRedirectURL("https://meet.one");
 appInfo.setDescription("this is a demo");
 appInfo.setVersion("app version");
 MeetOneManager.getInstance().requestAuthorize(this,authorize,appInfo, new MeetOneCallBack() {
@@ -97,7 +105,7 @@ AppInfo appInfo = new AppInfo();
 appInfo.setName("app name");
 appInfo.setIcon("app icon");
 appInfo.setDappCallbackScheme("http");
-appInfo.setDappRedirectURL("http://www.baidu.com");
+appInfo.setDappRedirectURL("https://meet.one");
 appInfo.setDescription("this is a demo");
 appInfo.setVersion("app version");
 
@@ -130,7 +138,7 @@ AppInfo appInfo = new AppInfo();
 appInfo.setName("app name");
 appInfo.setIcon("app icon");
 appInfo.setDappCallbackScheme("http");
-appInfo.setDappRedirectURL("http://www.baidu.com");
+appInfo.setDappRedirectURL("https://meet.one");
 appInfo.setDescription("this is a demo");
 appInfo.setVersion("app version");
 
@@ -140,6 +148,7 @@ transaction.setDescription("test demo");
 String action1 = "{\"account\":\"eosio.token\",\"name\":\"transfer\",\"authorization\":[{\"actor\":\"aaaa\", \"permission\":\"owner\"}],\"data\":{\"from\":\"aaaa\", \"to\":\"bbbb\",\"quantity\":\"0.0001 EOS\",\"memo\":\"test\"}}";
 List<String> actions = new ArrayList<>();
 actions.add(action1);
+transaction.setFrom("aaaa");//from account name
 transaction.setActions(actions);
 String options = "{\"broadcast\":true}}";
 transaction.setOptions(options);
@@ -147,6 +156,84 @@ MeetOneManager.getInstance().requestTransaction(this, transaction, appInfo, new 
     @Override
     public void callBack(Map<String, String> paramMap, CallBack callBack) {
         Log.d("MeetOneManager", paramMap.toString() + "  " + callBack.getData());
+    }
+});
+```
+
+### 3.Push EOS Transactions
+
+**Code Samples**
+
+
+```java
+AppInfo appInfo = new AppInfo();
+appInfo.setName("moreone");
+appInfo.setIcon("app icon");
+appInfo.setDappCallbackScheme("moreone");
+appInfo.setDappRedirectURL("https://meet.one");
+appInfo.setDescription("this is a demo");
+appInfo.setVersion("2.4.0");
+
+Signature signature = new Signature();
+signature.setAccountName("aaaaa");//提供签名的EOS 账号
+signature.setData("moreone");//自定义签名字符串
+signature.setDescription("this is a demo");//DAPP发起签名操作原因
+MeetOneManager.getInstance().requeatSignature(this, signature, appInfo, new MeetOneCallBack() {
+    @Override
+    public void callBack(Map<String, String> paramMap, CallBack callBack) {
+        Log.d("MeetOneManager", paramMap.toString());
+        mViewBinding.tvContent.setText(paramMap.toString());
+    }
+});
+```
+
+## SimpleWallet SDK Usage
+
+### 1.Request EOS Authorization
+
+**Code Samples**
+
+
+```java
+SimpleWalletLogin login = new SimpleWalletLogin();
+login.setDappName("more one app");
+login.setDappIcon("more one icon");
+login.setUuID("xxxx");//uuid
+login.setLoginUrl("https://demo/api/login");
+login.setLoginMemo("login Memo");
+login.setCallback("moreone://login?action=login");
+MeetOneManager.getInstance().requestLogin(this, login, new SimpleWalletCallBack() {
+    @Override
+    public void callBack(Map<String, String> paramMap, String callBack) {
+        Log.d("MeetOneManager", paramMap.toString());
+        mViewBinding.tvContent.setText(paramMap.toString());
+    }
+});
+```
+
+        
+### 2.EOS Transfer
+
+**Code Samples**
+
+
+```java
+SimpleWalletPay pay = new SimpleWalletPay();
+pay.setDappName("more one app");
+pay.setDappIcon("more one icon");
+pay.setFrom("aaaaaa");
+pay.setTo("bbbbb");
+pay.setAmount("0.0001");
+pay.setSymbol("EOS");
+pay.setPrecision(4);
+pay.setContract("eosio.token");
+pay.setDesc("i am test");
+pay.setCallback("moreone://login?action=login");
+MeetOneManager.getInstance().requestPay(this, pay, new SimpleWalletCallBack() {
+    @Override
+    public void callBack(Map<String, String> paramMap, String callBack) {
+        Log.d("MeetOneManager", paramMap.toString());
+        mViewBinding.tvContent.setText(paramMap.toString());
     }
 });
 ```

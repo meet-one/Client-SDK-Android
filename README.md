@@ -86,6 +86,7 @@ appInfo.setDappCallbackScheme("http");
 appInfo.setDappRedirectURL("https://meet.one");
 appInfo.setDescription("this is a demo");
 appInfo.setVersion("app version");
+appInfo.setUuID("")
 MeetOneManager.getInstance().requestAuthorize(this,authorize,appInfo, new MeetOneCallBack() {
     @Override
     public void callBack(Map<String, String> paramMap, CallBack callBack) {

@@ -16,16 +16,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.meetone.meetlib.RouterActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+        <!-- 解析 meetone/simple wallet 协议时使用-->
+        <activity
+            android:name="com.meetone.meetlib.RouterActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="moreone" />
+                <data android:scheme="testdemo" />
+            </intent-filter>
+        </activity>
+        <!-- 解析Kylin 协议时使用-->
+        <activity
+            android:name="io.cryptokylin.KylinSDK.KylinParseActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="testkylindemo" />
             </intent-filter>
         </activity>
     </application>

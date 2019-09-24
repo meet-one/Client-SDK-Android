@@ -10,14 +10,65 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="testSignature"
-        android:text="Test Signature"
-        tools:ignore="OnClick" />
+        android:text="签名" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="testAuthorize"
-        android:text="Test Authorize"
-        tools:ignore="OnClick" />
+        android:text="授权" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnTransfer"
+        android:text="交易" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnTransaction"
+        android:text="事务" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnGetAccount"
+        android:text="Eos账号信息" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnSimpleWalletLogin"
+        android:text="Simple Wallet 登录" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnSimpleWalletPay"
+        android:text="Simple Wallet 支付" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testKylinPay"
+        android:text="Kylin 支付" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testKylinLogin"
+        android:text="Kylin 登录" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testKylinSign"
+        android:text="Kylin 签名" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testKylinContract"
+        android:text="Kylin 合约" />
 </LinearLayout>

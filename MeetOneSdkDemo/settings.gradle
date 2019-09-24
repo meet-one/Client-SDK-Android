@@ -1,1 +1,10 @@
 include ':app'
+
+if (isDev != "aar") {
+    include(':meetlib')
+    project(':meetlib').projectDir = new File('../MeetOneSdk/meetlib')
+
+    include(':kylin')
+    project(':kylin').projectDir = new File('../MeetOneSdk/kylin')
+}
+
